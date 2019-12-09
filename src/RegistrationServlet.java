@@ -17,7 +17,7 @@ public class RegistrationServlet extends HttpServlet {
         String userPassword = request.getParameter("userPass");
         String userEmail = request.getParameter("userEmail");
 
-        if (userName.equals("") && userEmail.equals("") && userPassword.equals("")) {
+        if (!userName.equals("") && !userEmail.equals("") && !userPassword.equals("")) {
             int status = RegisterDao.registerUser(new User(userName, userEmail, userPassword));
             if (status > 0) {
                 out.println("You are successfully registered...");
